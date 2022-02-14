@@ -7,3 +7,9 @@ it('renders without crashing', () => {
   ReactDOM.render(<App />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
+
+// adding a task adds to the list
+
+// clicking the checkbox completes check
+
+// deleting a task removes it from list
