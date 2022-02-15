@@ -45,3 +45,10 @@ describe('todo list', () => {
         expect(getByTestId('todo-list').childElementCount).toBe(3);
     }) 
 })
+
+describe('todo form', () => {
+    it('renders without crashing', () => {
+        const div = document.createElement('div');
+        ReactDOM.render(<TodoForm />, div);
+    })
+})
