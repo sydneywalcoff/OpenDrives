@@ -33,9 +33,15 @@ describe('todo List Item', () => {
 })
 
 describe('todo list', () => {
-    it('renders todo list without crashing',() => {
-        const todoList = [{ index: 1, value: "learn react", done: false }, { index: 2, value: "brush teeth", done: false }, { index: 3, value: "walk dog", done: true }];
+    const todoList = [{ index: 1, value: "learn react", done: false }, { index: 2, value: "brush teeth", done: false }, { index: 3, value: "walk dog", done: true }];
+
+    it('renders todo list without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(<TodoList items ={todoList}/>, div);
     })
+
+    it('renders the correct number of list items', () => {
+        const { getByTestId } = render(<TodoList items = {todoList}/>);
+        expect(getByTestId('todo-list').childElementCount).toBe(3);
+    }) 
 })
