@@ -24,5 +24,11 @@ describe('todo List Item', () => {
         const { getByTestId } = render(<TodoListItem ikey={todo.index} item={todo} index={todo.index} />);
         expect(getByTestId('todo-status').innerHTML).toBe('[  ]')
     })
+
+    it('renders delete button', ()=> {
+        const div = document.createElement("div");
+        const { getByTestId } = render(<TodoListItem ikey={todo.index} item={todo} index={todo.index} />);
+        expect(getByTestId('todo-button').type).toBe('button')
+    })
 })
 
