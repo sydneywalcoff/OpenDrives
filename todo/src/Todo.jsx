@@ -1,6 +1,6 @@
 import React from 'react';
 
-class TodoList extends React.Component {
+export class TodoList extends React.Component {
   render () {
     var items = this.props.items.map((item, index) => {
       return (
@@ -14,7 +14,7 @@ class TodoList extends React.Component {
   }
 }
 
-class TodoListItem extends React.Component {
+export class TodoListItem extends React.Component {
   constructor(props) {
     super(props);
     this.onClickClose = this.onClickClose.bind(this);
@@ -46,7 +46,7 @@ class TodoListItem extends React.Component {
   }
 }
 
-class TodoForm extends React.Component {
+export class TodoForm extends React.Component {
   constructor(props) {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
@@ -73,7 +73,7 @@ class TodoForm extends React.Component {
   }
 }
 
-class TodoHeader extends React.Component {
+export class TodoHeader extends React.Component {
   render () {
     return <h1 className="Todo-header">Todo list</h1>;
   }
