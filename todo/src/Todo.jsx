@@ -35,7 +35,7 @@ export class TodoListItem extends React.Component {
         "[X]" : "[  ]";
     return(
       <li className="Todo-item" data-testid='todo-item'>
-        <span className="icon" aria-hidden="true" onClick={this.onClickDone}>{ doneText }</span>
+        <span className="icon" aria-hidden="true" onClick={this.onClickDone} data-testid='todo-status'>{ doneText }</span>
 
         <div className={todoClass}>
           {this.props.item.value}
