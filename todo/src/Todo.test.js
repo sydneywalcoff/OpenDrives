@@ -51,4 +51,9 @@ describe('todo form', () => {
         const div = document.createElement('div');
         ReactDOM.render(<TodoForm />, div);
     })
+
+    it('renders input element correctly', () => {
+        const { getByTestId } = render(<TodoForm />);
+        expect(getByTestId('todo-input').placeholder).toBe("add a new todo...");
+    })
 })
