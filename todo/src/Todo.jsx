@@ -34,7 +34,7 @@ export class TodoListItem extends React.Component {
     let doneText = this.props.item.done ?
         "[X]" : "[  ]";
     return(
-      <li className="Todo-item">
+      <li className="Todo-item" data-testid='todo-item'>
         <span className="icon" aria-hidden="true" onClick={this.onClickDone}>{ doneText }</span>
 
         <div className={todoClass}>
