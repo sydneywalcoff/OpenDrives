@@ -25,6 +25,11 @@ describe('todo List Item', () => {
         expect(getByTestId('todo-status').innerHTML).toBe('[  ]')
     })
 
+    it('changes className based on done property', ()=> {
+        const { getByTestId } = render(<TodoListItem ikey={todo.index} item={todo} index={todo.index} />)
+        expect(getByTestId('todo-status-class').className).toBe('undone')
+    })
+
     it('renders delete button', () => {
         const { getByTestId } = render(<TodoListItem ikey={todo.index} item={todo} index={todo.index} />);
         expect(getByTestId('todo-button').type).toBe('button')

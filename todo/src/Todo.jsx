@@ -37,7 +37,7 @@ export class TodoListItem extends React.Component {
       <li className="Todo-item" data-testid='todo-item'>
         <span className="icon" aria-hidden="true" onClick={this.onClickDone} data-testid='todo-status'>{ doneText }</span>
 
-        <div className={todoClass}>
+        <div className={todoClass} data-testid="todo-status-class">
           {this.props.item.value}
         </div>
         <button type="button" className="close" onClick={this.onClickClose} data-testid='todo-button'>&times;</button>
