@@ -1,14 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'; 
 import { TodoList, TodoListItem, TodoForm, TodoHeader, ToDos } from './Todo';
 
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 describe('todo Header', () => {
-    const div = document.createElement("div");
     it('renders without crashing', () => {
-        ReactDOM.render(<TodoHeader />, div);
+        render(<TodoHeader />);
     })
 })
 
@@ -41,8 +39,7 @@ describe('todo list', () => {
     const todoList = [{ index: 1, value: "learn react", done: false }, { index: 2, value: "brush teeth", done: false }, { index: 3, value: "walk dog", done: true }];
 
     it('renders todo list without crashing', () => {
-        const div = document.createElement('div');
-        ReactDOM.render(<TodoList items ={todoList}/>, div);
+        render(<TodoList items ={todoList}/>);
     })
 
     it('renders the correct number of list items', () => {
@@ -53,8 +50,7 @@ describe('todo list', () => {
 
 describe('todo form', () => {
     it('renders without crashing', () => {
-        const div = document.createElement('div');
-        ReactDOM.render(<TodoForm />, div);
+        render(<TodoForm />);
     })
 
     it('renders input element correctly', () => {
