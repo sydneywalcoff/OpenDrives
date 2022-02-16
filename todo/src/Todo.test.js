@@ -17,6 +17,14 @@ describe('todo Header', () => {
 describe('todo List Item', () => {
     const todo = { index: 1, value: "learn react", done: false };
 
+    it('renders without crashing', () => {
+        render(<TodoListItem ikey={todo.index} item={todo} index={todo.index} />)
+    })
+
+    it('matches snapshot', () => {
+        expect(render(<TodoListItem ikey={todo.index} item={todo} index={todo.index} />)).toMatchSnapshot();
+    })
+
     it('renders to do list item with correct value', () => {
         const { getByTestId } = render(<TodoListItem ikey={todo.index} item={todo} index={todo.index} />);
         expect(getByTestId('todo-item')).toHaveTextContent("learn react");
