@@ -8,6 +8,10 @@ describe('todo Header', () => {
     it('renders without crashing', () => {
         render(<TodoHeader />);
     })
+
+    it('matches snapshot', () => {
+        expect(render(<TodoHeader />)).toMatchSnapshot();
+    })
 })
 
 describe('todo List Item', () => {
