@@ -30,9 +30,10 @@ describe('todo List Item', () => {
         expect(getByTestId('todo-status-class').className).toBe('undone')
     })
 
-    it('renders delete button', () => {
+    it('renders delete button correctly', () => {
         const { getByTestId } = render(<TodoListItem ikey={todo.index} item={todo} index={todo.index} />);
-        expect(getByTestId('todo-button').type).toBe('button')
+        expect(getByTestId('todo-button').type).toBe('button');
+        expect(getByTestId('todo-button').innerHTML).toBe('×');
     })
 })
 
