@@ -10,7 +10,8 @@ describe('todo Header', () => {
     })
 
     it('matches snapshot', () => {
-        expect(render(<TodoHeader />)).toMatchSnapshot();
+        const { asFragment } = render(<TodoHeader />);
+        expect(asFragment()).toMatchSnapshot();
     })
 })
 
@@ -22,7 +23,8 @@ describe('todo List Item', () => {
     })
 
     it('matches snapshot', () => {
-        expect(render(<TodoListItem ikey={todo.index} item={todo} index={todo.index} />)).toMatchSnapshot();
+        const { asFragment } = render(<TodoListItem ikey={todo.index} item={todo} index={todo.index} />);
+        expect(asFragment()).toMatchSnapshot();
     })
 
     it('renders to do list item with correct value', () => {
@@ -55,7 +57,8 @@ describe('todo list', () => {
     })
 
     it('matches snpashot', () => {
-        expect(render(<TodoList items ={todoList}/>)).toMatchSnapshot();
+        const { asFragment } = render(<TodoList items ={todoList}/>);
+        expect(asFragment()).toMatchSnapshot();
     })
 
     it('renders the correct number of list items', () => {
@@ -67,6 +70,11 @@ describe('todo list', () => {
 describe('todo form', () => {
     it('renders without crashing', () => {
         render(<TodoForm />);
+    })
+
+    it('matches snapshot', () => {
+        const { asFragment } = render(<TodoForm />)
+        expect(asFragment()).toMatchSnapshot()
     })
 
     it('renders input element correctly', () => {
