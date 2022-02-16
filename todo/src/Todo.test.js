@@ -26,7 +26,6 @@ describe('todo List Item', () => {
     })
 
     it('renders delete button', () => {
-        const div = document.createElement("div");
         const { getByTestId } = render(<TodoListItem ikey={todo.index} item={todo} index={todo.index} />);
         expect(getByTestId('todo-button').type).toBe('button')
     })
@@ -55,5 +54,11 @@ describe('todo form', () => {
     it('renders input element correctly', () => {
         const { getByTestId } = render(<TodoForm />);
         expect(getByTestId('todo-input').placeholder).toBe("add a new todo...");
+    })
+
+    it('renders button correctly', () => {
+        const { getByTestId } = render(<TodoForm />);
+        expect(getByTestId('todo-form-button').type).toBe('submit');
+        expect(getByTestId('todo-form-button')).toHaveTextContent('+');
     })
 })

@@ -67,7 +67,7 @@ export class TodoForm extends React.Component {
     return (
       <form ref="form" onSubmit={this.onSubmit} className="form-inline">
         <input type="text" ref="itemName" className="form-control" placeholder="add a new todo..." data-testid="todo-input"/>
-        <button type="submit" className="submit">+</button>
+        <button type="submit" className="submit" data-testid="todo-form-button">+</button>
       </form>
     );
   }
