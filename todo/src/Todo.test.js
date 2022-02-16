@@ -54,6 +54,10 @@ describe('todo list', () => {
         render(<TodoList items ={todoList}/>);
     })
 
+    it('matches snpashot', () => {
+        expect(render(<TodoList items ={todoList}/>)).toMatchSnapshot();
+    })
+
     it('renders the correct number of list items', () => {
         const { getByTestId } = render(<TodoList items = {todoList}/>);
         expect(getByTestId('todo-list').childElementCount).toBe(3);
