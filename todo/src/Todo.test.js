@@ -1,7 +1,7 @@
-import React from 'react'; 
-import { TodoList, TodoListItem, TodoForm, TodoHeader, ToDos } from './Todo';
+import React from 'react';
+import Todos, { TodoList, TodoListItem, TodoForm, TodoHeader } from './Todo';
 
-import { render } from '@testing-library/react';
+import { render, screen, fireEvent, getByText } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 describe('todo Header', () => {
@@ -37,7 +37,7 @@ describe('todo List Item', () => {
         expect(getByTestId('todo-status').innerHTML).toBe('[  ]')
     })
 
-    it('changes className based on done property', ()=> {
+    it('changes className based on done property', () => {
         const { getByTestId } = render(<TodoListItem ikey={todo.index} item={todo} index={todo.index} />)
         expect(getByTestId('todo-status-class').className).toBe('undone')
     })
@@ -53,18 +53,18 @@ describe('todo list', () => {
     const todoList = [{ index: 1, value: "learn react", done: false }, { index: 2, value: "brush teeth", done: false }, { index: 3, value: "walk dog", done: true }];
 
     it('renders todo list without crashing', () => {
-        render(<TodoList items ={todoList}/>);
+        render(<TodoList items={todoList} />);
     })
 
     it('matches snpashot', () => {
-        const { asFragment } = render(<TodoList items ={todoList}/>);
+        const { asFragment } = render(<TodoList items={todoList} />);
         expect(asFragment()).toMatchSnapshot();
     })
 
     it('renders the correct number of list items', () => {
-        const { getByTestId } = render(<TodoList items = {todoList}/>);
+        const { getByTestId } = render(<TodoList items={todoList} />);
         expect(getByTestId('todo-list').childElementCount).toBe(3);
-    }) 
+    })
 })
 
 describe('todo form', () => {
@@ -86,5 +86,29 @@ describe('todo form', () => {
         const { getByTestId } = render(<TodoForm />);
         expect(getByTestId('todo-form-button').type).toBe('submit');
         expect(getByTestId('todo-form-button')).toHaveTextContent('+');
+    })
+})
+
+describe('create todo method', () => {
+    const todoList = [
+        {
+            index: 1,
+            value: "learn react",
+            done: false
+        }
+    ]
+    const newItemValue = 'walk dog'
+    it('creates a new todo item', () => {
+        const { getByTestId } = render(<Todos initItems={todoList} />);
+        expect(getByTestId('todo-list').childElementCount).toBe(1);
+
+        fireEvent.input(screen.getByTestId('todo-input'), {
+            target: {
+                value: newItemValue
+            }
+        })
+        fireEvent.click(screen.getByTestId('todo-form-button'));
+        expect(getByTestId('todo-list').childElementCount).toBe(2);
+        expect(screen.getByTestId('todo-list')).toHaveTextContent(newItemValue);
     })
 })
