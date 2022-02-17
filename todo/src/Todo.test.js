@@ -1,7 +1,7 @@
 import React from 'react';
 import Todos, { TodoList, TodoListItem, TodoForm, TodoHeader } from './Todo';
 
-import { render, screen, fireEvent, getByText } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 describe('todo Header', () => {
@@ -110,5 +110,31 @@ describe('create todo method', () => {
         fireEvent.click(screen.getByTestId('todo-form-button'));
         expect(getByTestId('todo-list').childElementCount).toBe(2);
         expect(screen.getByTestId('todo-list')).toHaveTextContent(newItemValue);
+    })
+})
+
+describe('complete todo method', () =>{
+    const todoList = [{ index: 1, value: "learn react", done: false }, { index: 2, value: "brush teeth", done: false }, { index: 3, value: "walk dog", done: true }];
+
+    it('changes done property to true', () => {
+        const { getByText } = render(<Todos initItems={todoList} />)
+        // check that todo Status is un-done
+        const todoElText = getByText('learn react');
+        // grab prev sibling to get to done status
+        const todoStatusEl = todoElText.previousElementSibling;
+        // check that done status is undone
+        expect(todoStatusEl).toHaveTextContent("[ ]")
+        // check that class name is 'undone' to apply undone styles
+        expect(todoElText.className).toBe('undone')
+        // click on the done span element
+        fireEvent.click(todoStatusEl)
+        // re-find the 'learn react' text
+        const completedTodo = getByText('learn react');
+        // get the previous element sibling to check the status
+        const completedTodoStatus = completedTodo.previousElementSibling;
+        // check that done status has been updated
+        expect(completedTodoStatus).toHaveTextContent("[X]");
+        // check that class name has been updated to 'done' to apply styles
+        expect(completedTodo.className).toBe('done');
     })
 })
