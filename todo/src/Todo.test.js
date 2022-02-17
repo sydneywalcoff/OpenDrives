@@ -113,10 +113,10 @@ describe('create todo method', () => {
     })
 })
 
-describe('complete todo method', () =>{
+describe('un/complete todo method', () =>{
     const todoList = [{ index: 1, value: "learn react", done: false }, { index: 2, value: "brush teeth", done: false }, { index: 3, value: "walk dog", done: true }];
 
-    it('changes done property to true', () => {
+    it('completes a todo', () => {
         const { getByText } = render(<Todos initItems={todoList} />)
         // check that todo Status is un-done
         const todoElText = getByText('learn react');
@@ -136,5 +136,25 @@ describe('complete todo method', () =>{
         expect(completedTodoStatus).toHaveTextContent("[X]");
         // check that class name has been updated to 'done' to apply styles
         expect(completedTodo.className).toBe('done');
+    })
+
+    it('uncompletes a todo', ()=> {
+        const { getByText } = render(<Todos initItems={todoList} />)
+        // grab todo text div and status span
+        const completedTextEl = getByText('walk dog');
+        const completedStatus = completedTextEl.previousElementSibling;
+        // check that done status is checked
+        expect(completedStatus).toHaveTextContent("[X]")
+        // check that className is done
+        expect(completedTextEl.className).toBe('done')
+        // click on done span el
+        fireEvent.click(completedStatus);
+        // refind todo text div and status span
+        const todoTextEl = getByText('walk dog');
+        const todoStatusEl = todoTextEl.previousElementSibling;
+        // check that done status is not checked
+        expect(todoStatusEl).toHaveTextContent("[ ]");
+        // check that className is 'undone'
+        expect(todoTextEl.className).toBe('undone');
     })
 })
