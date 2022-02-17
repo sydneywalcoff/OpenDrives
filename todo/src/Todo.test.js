@@ -158,3 +158,22 @@ describe('un/complete todo method', () =>{
         expect(todoTextEl.className).toBe('undone');
     })
 })
+
+describe('destroy todo method', () => {
+    const todoList = [{ index: 1, value: "learn react", done: false }, { index: 2, value: "brush teeth", done: false }, { index: 3, value: "walk dog", done: true }];
+
+    it('deletes a todo', () => {
+        const { getByText, getByTestId } = render(<Todos initItems={todoList}/>);
+        // grab learn react text and button
+        const todoTextEl =  getByText('learn react');
+        const deleteButton = todoTextEl.nextElementSibling;
+        // check todo List length is equal to 3
+        expect(todoList).toHaveLength(3);
+        // click on delete button
+        fireEvent.click(deleteButton);
+        // check that 'learn react' todo is NOT there
+        expect(getByTestId('todo-list')).not.toContain('learn react');
+        // check that todoList length is equal to 2
+        expect(todoList).toHaveLength(2);
+    })
+})
