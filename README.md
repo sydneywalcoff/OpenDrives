@@ -32,9 +32,9 @@ It is your task to create a QA testing approach to ensure the quality of this pr
 * [x] Commit early and often. We'll likely be following along with your progress.
 
 #### Upon completing this, please post to us:
-* [x] A link to somewhere we may view your QA Checklist
-* [x] A link to your git repository such that we may view your automated QA code
-* [x] A link to somewhere we may view your QA Report of our product
+* [x] [A link to somewhere we may view your QA Checklist](https://docs.google.com/document/d/14E_4VsumqFdOBVF30wk1oVhrCFYBi9Jjl1DFKPn-ESw/edit?usp=sharing) 
+* [x] [A link to your git repository such that we may view your automated QA code](https://github.com/sydneywalcoff/OpenDrives)
+* [x] [A link to somewhere we may view your QA Report of our product](https://github.com/sydneywalcoff/OpenDrives)
 
 ## Testing Requirements
 
