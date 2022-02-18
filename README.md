@@ -34,7 +34,7 @@ It is your task to create a QA testing approach to ensure the quality of this pr
 #### Upon completing this, please post to us:
 * [x] [A link to somewhere we may view your QA Checklist](https://docs.google.com/document/d/14E_4VsumqFdOBVF30wk1oVhrCFYBi9Jjl1DFKPn-ESw/edit?usp=sharing) 
 * [x] [A link to your git repository such that we may view your automated QA code](https://github.com/sydneywalcoff/OpenDrives)
-* [x] [A link to somewhere we may view your QA Report of our product](https://github.com/sydneywalcoff/OpenDrives)
+* [x] [A link to somewhere we may view your QA Report of our product](https://docs.google.com/document/d/1IyuLtPQzAjoe53jPkrIFLEWNStoaUP77G3YC1rGyNmQ/edit?usp=sharing)
 
 ## Testing Requirements
 
