@@ -26,30 +26,30 @@ It is your task to create a QA testing approach to ensure the quality of this pr
 3. Create a report of your testing against this todo app to present to our team
 
 #### As soon as you begin:
-* [ ] Fork this repository into a public repository on your gitlab/etc account
+* [x] Fork this repository into a public repository on your gitlab/etc account
 
 #### While working on this, please:
-* [ ] Commit early and often. We'll likely be following along with your progress.
+* [x] Commit early and often. We'll likely be following along with your progress.
 
 #### Upon completing this, please post to us:
-* [ ] A link to somewhere we may view your QA Checklist
-* [ ] A link to your git repository such that we may view your automated QA code
-* [ ] A link to somewhere we may view your QA Report of our product
+* [x] A link to somewhere we may view your QA Checklist
+* [x] A link to your git repository such that we may view your automated QA code
+* [x] A link to somewhere we may view your QA Report of our product
 
 ## Testing Requirements
 
 #### Manual Testing
-* [ ] Test all interaction cases that you deem worthy
+* [x] Test all interaction cases that you deem worthy
 
 #### Automated Testing
-* [ ] Test major interactions listed
-  * [ ] Create TODO
-  * [ ] Complete TODO
-  * [ ] Un-Complete TODO
-  * [ ] Destroy TODO
+* [x] Test major interactions listed
+  * [x] Create TODO
+  * [x] Complete TODO
+  * [x] Un-Complete TODO
+  * [x] Destroy TODO
 
 #### Final Report
-* [ ] Create a distributable final report that gives information to the Engineering team about items that are broken and undesirable interactions.
+* [x] Create a distributable final report that gives information to the Engineering team about items that are broken and undesirable interactions.
 
 ## BONUS
 

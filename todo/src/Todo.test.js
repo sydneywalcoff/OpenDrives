@@ -97,18 +97,23 @@ describe('create todo method', () => {
             done: false
         }
     ]
+    // new todo item
     const newItemValue = 'walk dog'
     it('creates a new todo item', () => {
         const { getByTestId } = render(<Todos initItems={todoList} />);
+        // expect that todoList only has one todo item
         expect(getByTestId('todo-list').childElementCount).toBe(1);
-
+        // add new value to input
         fireEvent.input(screen.getByTestId('todo-input'), {
             target: {
                 value: newItemValue
             }
         })
+        // click submit button
         fireEvent.click(screen.getByTestId('todo-form-button'));
+        // expect that todoList has two items
         expect(getByTestId('todo-list').childElementCount).toBe(2);
+        // expect a todo item with the new value has been added to the list
         expect(screen.getByTestId('todo-list')).toHaveTextContent(newItemValue);
     })
 })
